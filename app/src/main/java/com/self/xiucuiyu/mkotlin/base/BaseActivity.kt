@@ -6,17 +6,19 @@ import android.os.PersistableBundle
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
 
 /**
  * Created by xiucui.yu on 2017/10/31.
  */
 abstract class BaseActivity : AppCompatActivity(), AnkoLogger {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-        initListener()
-        initData()
+        initData();
+        initListener();
     }
 
     open protected fun initData() {
@@ -30,11 +32,16 @@ abstract class BaseActivity : AppCompatActivity(), AnkoLogger {
     abstract fun getLayoutId(): Int
 
 
-    open protected fun toast(msg: String) {
+    open protected fun myToast(msg: String) {
         if (Thread.currentThread() != Looper.getMainLooper().thread) {
             toast(msg)
-        }
-        toast(msg)
+        } else
+            toast(msg)
+    }
+
+    inline fun <reified T : BaseActivity> startActivityAndFinish() {
+        startActivity<T>();
+        finish()
     }
 
 }
