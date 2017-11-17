@@ -18,15 +18,15 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
         init();
     }
 
-    open protected  fun init() {
-        //To change body of created functions use File | Settings | File Templates.
+    open protected fun init() {
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return initView()
+        return initView(inflater, container, savedInstanceState)
     }
 
-    abstract fun initView(): View?
+    abstract fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -34,7 +34,7 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
         initData()
     }
 
-    open  protected fun initData() {
+    open protected fun initData() {
         //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -2,11 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <tab
         icon="@drawable/ic_bottom_home_icon"
-        id="@+id/tab_favorites"
+        id="@+id/tab_home"
         title="首页" />
     <tab
         icon="@drawable/ic_bottom_mv_unselect"
-        id="@+id/tab_nearby"
+        id="@+id/tab_mv"
         title="MV" />
     <tab
         icon="@drawable/ic_bottom_vlist_unselect"
