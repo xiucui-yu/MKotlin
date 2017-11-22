@@ -2,10 +2,14 @@ package com.self.xiucuiyu.mkotlin.widget
 
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
+import com.bumptech.glide.Glide
+import com.itheima.player.model.bean.HomeItemBean
 import com.self.xiucuiyu.mkotlin.R
+import kotlinx.android.synthetic.main.item_home_adapter_view_layout.view.*
 
 /**
  * Created by xiucui.yu on 2017/11/17.
@@ -19,7 +23,15 @@ class HomeItemView : RelativeLayout {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
     init {
-        View.inflate(context, R.layout.item_home_adapter_view_layout,this)
+        View.inflate(context, R.layout.item_home_adapter_view_layout, this)
+    }
+
+    fun setData(item: HomeItemBean) {
+        title_tv.text = item.title
+        desc_tv.text = item.description
+        Glide.with(this).load(item.posterPic).into(image)
+        Glide.with(this).load(item.uhdUrl).into(label_image)
+
 
     }
 }

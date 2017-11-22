@@ -22,23 +22,27 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return initView(inflater, container, savedInstanceState)
     }
 
+
     abstract fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         super.onActivityCreated(savedInstanceState)
         initListener();
         initData()
     }
 
     open protected fun initData() {
-        //To change body of created functions use File | Settings | File Templates.
+
     }
 
-    open protected fun initListener() { //To change body of created functions use File | Settings | File Templates.
+    open protected fun initListener() {
     }
 
     open protected fun toast(msg: String) {
