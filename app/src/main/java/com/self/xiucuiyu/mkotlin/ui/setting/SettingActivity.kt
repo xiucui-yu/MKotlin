@@ -1,4 +1,4 @@
-package com.self.xiucuiyu.mkotlin.ui
+package com.self.xiucuiyu.mkotlin.ui.setting
 
 import android.preference.PreferenceManager
 import android.support.v7.widget.Toolbar

@@ -1,4 +1,4 @@
-package com.self.xiucuiyu.mkotlin.ui.fragment
+package com.self.xiucuiyu.mkotlin.ui.yuedan
 
 import android.os.Bundle
 import android.view.LayoutInflater

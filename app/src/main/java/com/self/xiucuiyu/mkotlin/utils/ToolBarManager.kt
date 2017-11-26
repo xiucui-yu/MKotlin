@@ -2,10 +2,8 @@ package com.self.xiucuiyu.mkotlin.utils
 
 import android.content.Intent
 import android.support.v7.widget.Toolbar
-import android.view.MenuItem
 import com.self.xiucuiyu.mkotlin.R
-import com.self.xiucuiyu.mkotlin.ui.SettingActivity
-import java.util.*
+import com.self.xiucuiyu.mkotlin.ui.setting.SettingActivity
 
 /**
  * Created by xiucui.yu on 2017/11/16.
