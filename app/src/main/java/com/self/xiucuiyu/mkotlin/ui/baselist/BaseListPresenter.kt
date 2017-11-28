@@ -3,19 +3,21 @@ package com.self.xiucuiyu.mkotlin.ui.homepage
 import com.self.xiucuiyu.mkotlin.net.MRequest
 import com.self.xiucuiyu.mkotlin.net.NetManager
 import com.self.xiucuiyu.mkotlin.net.ResponseCallBack
+import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeItemBean
 
 /**
  * Created by xiucui.yu on 2017/11/22.
  *
  */
-abstract class BaseListPresenter<ITENBEAN>(var homeView: ListContract.View<ITENBEAN>) : ListContract.Presenter, ResponseCallBack<List<ITENBEAN>> {
+abstract class BaseListPresenter<RESPONSE, ITENBEAN>(var homeView: ListContract.View<RESPONSE>) : ListContract.Presenter, ResponseCallBack<RESPONSE> {
 
-    override fun onSuccess(tag: String, response: List<ITENBEAN>) {
+    override fun onSuccess(tag: String, response: RESPONSE) {
         when (tag) {
             REFRESH -> homeView.refreshSuccess(response)
             LOADMORE -> homeView.loadMoreSuccess(response)
         }
     }
+
 
     override fun onError(tag: String, msg: String?) {
         when (tag) {
@@ -23,6 +25,7 @@ abstract class BaseListPresenter<ITENBEAN>(var homeView: ListContract.View<ITENB
             LOADMORE -> homeView.loadMoreError(msg)
         }
     }
+
 
     companion object {
         private val REFRESH: String = "refresh"
@@ -41,7 +44,7 @@ abstract class BaseListPresenter<ITENBEAN>(var homeView: ListContract.View<ITENB
 
     }
 
-    abstract fun baseListRequest(offset: Int): MRequest<List<ITENBEAN>>
+    abstract fun baseListRequest(offset: Int): MRequest<RESPONSE>
 
     override fun start() {
         loadData();

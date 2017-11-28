@@ -16,24 +16,24 @@ import kotlinx.android.synthetic.main.fragment_home_layout.*
 /**
  * Created by xiucui.yu on 2017/11/17.
  */
-abstract class BaseListFragment<ITEMBEAN, ITEMVIEW : View> : BaseFragment(), ListContract.View<ITEMBEAN> {
-
-    override fun refreshSuccess(fromJson: List<ITEMBEAN>) {
-        activity?.runOnUiThread {
-            adapter.setData(fromJson as ArrayList<ITEMBEAN>);
-            if (refreshLayout.isRefreshing)
-                refreshLayout.isRefreshing = false
-        }
+abstract class BaseListFragment<RESPONSE, ITEMBEAN, ITEMVIEW : View> : BaseFragment(), ListContract.View<RESPONSE> {
+    override fun refreshSuccess(fromJson: RESPONSE) {
+        adapter.setData(getPageUseList(fromJson));
+        if (refreshLayout.isRefreshing)
+            refreshLayout.isRefreshing = false
     }
 
-    override fun loadMoreSuccess(fromJson: List<ITEMBEAN>) {
-        activity?.runOnUiThread {
-            adapter.addData(fromJson as ArrayList<ITEMBEAN>);
+    override fun loadMoreSuccess(fromJson: RESPONSE) {
 
-            if (refreshLayout.isRefreshing)
-                refreshLayout.isRefreshing = false
-        }
+        adapter.addData(getPageUseList(fromJson));
+
+        if (refreshLayout.isRefreshing)
+            refreshLayout.isRefreshing = false
+
     }
+
+    abstract fun getPageUseList(fromJson: RESPONSE): List<ITEMBEAN>
+
 
     override fun refreshError(message: String?) {
         if (refreshLayout.isRefreshing)

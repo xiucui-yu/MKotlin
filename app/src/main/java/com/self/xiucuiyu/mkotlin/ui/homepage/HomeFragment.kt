@@ -6,7 +6,11 @@ import com.self.xiucuiyu.mkotlin.ui.homepage.view.HomeItemView
 /**
  * Created by xiucui.yu on 2017/11/17.
  */
-class HomeFragment : BaseListFragment<HomeItemBean, HomeItemView>() {
+class HomeFragment : BaseListFragment<List<HomeItemBean>, HomeItemBean, HomeItemView>() {
+    override fun getPageUseList(fromJson: List<HomeItemBean>): List<HomeItemBean> {
+        return fromJson
+    }
+
     override fun initAdapter(): BaseListAdapter<HomeItemBean, HomeItemView> {
         return HomeAdapter()
     }

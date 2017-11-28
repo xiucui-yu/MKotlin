@@ -35,8 +35,8 @@ class HomeActivity : BaseActivity(), ToolBarManager {
 
             when (it) {
                 R.id.tab_home -> {
-                    fragment as HomeFragment
-                    HomePresenter(fragment)
+
+                    HomePresenter(fragment as HomeFragment)
                 }
                 R.id.tab_mv -> null;
                 R.id.tab_vbang -> null;
