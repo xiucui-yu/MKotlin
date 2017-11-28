@@ -1,16 +1,16 @@
 package com.self.xiucuiyu.mkotlin.ui.homepage
 
-import com.itheima.player.model.bean.HomeItemBean
+import com.self.xiucuiyu.mkotlin.net.MRequest
 import com.self.xiucuiyu.mkotlin.net.NetManager
 import com.self.xiucuiyu.mkotlin.net.ResponseCallBack
-import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeRequest
 
 /**
  * Created by xiucui.yu on 2017/11/22.
  *
  */
-class BaseListPresenter(var homeView: ListContract.View) : ListContract.Presenter, ResponseCallBack<List<HomeItemBean>> {
-    override fun onSuccess(tag: String, response: List<HomeItemBean>) {
+abstract class BaseListPresenter<ITENBEAN>(var homeView: ListContract.View<ITENBEAN>) : ListContract.Presenter, ResponseCallBack<List<ITENBEAN>> {
+
+    override fun onSuccess(tag: String, response: List<ITENBEAN>) {
         when (tag) {
             REFRESH -> homeView.refreshSuccess(response)
             LOADMORE -> homeView.loadMoreSuccess(response)
@@ -34,18 +34,21 @@ class BaseListPresenter(var homeView: ListContract.View) : ListContract.Presente
     }
 
     override fun loadMore(offset: Int) {
-        NetManager.instance.sendRequest(LOADMORE, HomeRequest(
-                offset, this))
+        NetManager.instance.sendRequest(
+                LOADMORE,
+                baseListRequest(offset)
+        )
 
     }
+
+    abstract fun baseListRequest(offset: Int): MRequest<List<ITENBEAN>>
 
     override fun start() {
         loadData();
     }
 
     private fun loadData() {
-        NetManager.instance.sendRequest(REFRESH, HomeRequest(
-                0, this))
+        NetManager.instance.sendRequest(REFRESH, baseListRequest(0))
 
     }
 

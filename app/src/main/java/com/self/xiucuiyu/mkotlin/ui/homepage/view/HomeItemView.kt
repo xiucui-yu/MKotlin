@@ -2,16 +2,12 @@ package com.self.xiucuiyu.mkotlin.ui.homepage.view
 
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.FitCenter
-import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.bumptech.glide.request.RequestOptions.fitCenterTransform
-import com.itheima.player.model.bean.HomeItemBean
+import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeItemBean
 import com.self.xiucuiyu.mkotlin.R
 import kotlinx.android.synthetic.main.item_home_adapter_view_layout.view.*
 

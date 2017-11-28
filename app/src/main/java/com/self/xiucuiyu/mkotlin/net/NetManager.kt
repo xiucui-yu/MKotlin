@@ -1,13 +1,8 @@
 package com.self.xiucuiyu.mkotlin.net
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.itheima.player.model.bean.HomeItemBean
 import com.self.xiucuiyu.mkotlin.executor.AppExecutors
-import com.self.xiucuiyu.mkotlin.utils.URLProviderUtils
 import okhttp3.*
 import java.io.IOException
-import java.net.CacheRequest
 
 /**
  * Created by xiucui.yu on 2017/11/26.

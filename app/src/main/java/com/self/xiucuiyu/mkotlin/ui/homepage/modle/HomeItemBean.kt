@@ -1,4 +1,4 @@
-package com.itheima.player.model.bean
+package com.self.xiucuiyu.mkotlin.ui.homepage.modle
 
 /**
  * ClassName:HomeItemBean

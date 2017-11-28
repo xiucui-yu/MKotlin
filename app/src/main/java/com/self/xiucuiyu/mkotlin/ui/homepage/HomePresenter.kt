@@ -1,15 +1,18 @@
 package com.self.xiucuiyu.mkotlin.ui.homepage
 
-import com.itheima.player.model.bean.HomeItemBean
-import com.self.xiucuiyu.mkotlin.net.NetManager
-import com.self.xiucuiyu.mkotlin.net.ResponseCallBack
+import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeItemBean
 import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeRequest
 
 /**
  * Created by xiucui.yu on 2017/11/22.
  *
  */
-class HomePresenter(var homeView: ListContract.View) : ListContract.Presenter, ResponseCallBack<List<HomeItemBean>> {
+class HomePresenter(homeView: ListContract.View<HomeItemBean>) : BaseListPresenter<HomeItemBean>(homeView) {
+    override fun baseListRequest(offset: Int): HomeRequest<HomeItemBean> {
+        return HomeRequest(offset, this)
+    }
+
+/*(var homeView: ListContract.View) : ListContract.Presenter, ResponseCallBack<List<HomeItemBean>> {
     override fun onSuccess(tag: String, response: List<HomeItemBean>) {
         when (tag) {
             REFRESH -> homeView.refreshSuccess(response)
@@ -48,5 +51,5 @@ class HomePresenter(var homeView: ListContract.View) : ListContract.Presenter, R
                 0, this))
 
     }
-
+*/
 }
