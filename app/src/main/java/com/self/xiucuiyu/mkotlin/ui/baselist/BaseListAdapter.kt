@@ -15,14 +15,14 @@ abstract class BaseListAdapter<ITEMBEAN, ITEMVIEW : View> : RecyclerView.Adapter
     private val ITEM_TYPE: Int = 1
     private val MORE_TYPE: Int = 2
 
-    fun addData(newHomeItemBeanList: List<ITEMBEAN>) {
-        newHomeItemBeanList.let {
+    fun addData(newHomeItemBeanList: List<ITEMBEAN>?) {
+        newHomeItemBeanList?.let {
             homeItemBeanList.addAll(it)
             notifyDataSetChanged()
         }
     }
 
-    fun setData(newHomeItemBeanList: List<ITEMBEAN>) {
+    fun setData(newHomeItemBeanList: List<ITEMBEAN>?) {
         newHomeItemBeanList?.let {
             homeItemBeanList.clear()
             homeItemBeanList.addAll(it)

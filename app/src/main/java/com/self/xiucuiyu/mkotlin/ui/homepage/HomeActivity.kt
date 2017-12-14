@@ -3,6 +3,10 @@ package com.self.xiucuiyu.mkotlin.ui.homepage
 import android.support.v7.widget.Toolbar
 import com.self.xiucuiyu.koltindemo.base.BaseActivity
 import com.self.xiucuiyu.mkotlin.R
+import com.self.xiucuiyu.mkotlin.ui.mv.MVFragment
+import com.self.xiucuiyu.mkotlin.ui.mv.MVPresenterImpl
+import com.self.xiucuiyu.mkotlin.ui.yuedan.YueDanFragment
+import com.self.xiucuiyu.mkotlin.ui.yuedan.YueDanPresenter
 import com.self.xiucuiyu.mkotlin.utils.FragmentUtil
 import com.self.xiucuiyu.mkotlin.utils.ToolBarManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -38,9 +42,14 @@ class HomeActivity : BaseActivity(), ToolBarManager {
 
                     HomePresenter(fragment as HomeFragment)
                 }
-                R.id.tab_mv -> null;
+                R.id.tab_mv -> {
+                    MVPresenterImpl(fragment as MVFragment)
+                }
                 R.id.tab_vbang -> null;
-                R.id.tab_yuedan -> null;
+                R.id.tab_yuedan -> {
+                    YueDanPresenter(fragment as YueDanFragment)
+                }
+
 
             }
 

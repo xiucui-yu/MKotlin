@@ -3,7 +3,6 @@ package com.self.xiucuiyu.mkotlin.ui.homepage
 import com.self.xiucuiyu.mkotlin.net.MRequest
 import com.self.xiucuiyu.mkotlin.net.NetManager
 import com.self.xiucuiyu.mkotlin.net.ResponseCallBack
-import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeItemBean
 
 /**
  * Created by xiucui.yu on 2017/11/22.

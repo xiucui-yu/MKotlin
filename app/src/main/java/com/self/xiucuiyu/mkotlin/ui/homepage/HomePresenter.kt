@@ -8,7 +8,7 @@ import com.self.xiucuiyu.mkotlin.ui.homepage.modle.HomeRequest
  *
  */
 class HomePresenter(homeView: ListContract.View<List<HomeItemBean>>) : BaseListPresenter<List<HomeItemBean>, HomeItemBean>(homeView) {
-    override fun baseListRequest(offset: Int): HomeRequest<HomeItemBean> {
+    override fun baseListRequest(offset: Int): HomeRequest {
         return HomeRequest(offset, this)
     }
 

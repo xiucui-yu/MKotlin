@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.itheima.player.model.bean.YueDanBean
 import com.self.xiucuiyu.koltindemo.base.BaseFragment
 import com.self.xiucuiyu.mkotlin.R
 import kotlinx.android.synthetic.main.fragment_home_layout.*
@@ -32,7 +33,7 @@ abstract class BaseListFragment<RESPONSE, ITEMBEAN, ITEMVIEW : View> : BaseFragm
 
     }
 
-    abstract fun getPageUseList(fromJson: RESPONSE): List<ITEMBEAN>
+    abstract fun getPageUseList(fromJson: RESPONSE): List<ITEMBEAN>?
 
 
     override fun refreshError(message: String?) {
