@@ -15,6 +15,7 @@ abstract class BaseListAdapter<ITEMBEAN, ITEMVIEW : View> : RecyclerView.Adapter
     private val ITEM_TYPE: Int = 1
     private val MORE_TYPE: Int = 2
 
+
     fun addData(newHomeItemBeanList: List<ITEMBEAN>?) {
         newHomeItemBeanList?.let {
             homeItemBeanList.addAll(it)
@@ -46,7 +47,16 @@ abstract class BaseListAdapter<ITEMBEAN, ITEMVIEW : View> : RecyclerView.Adapter
             val get = homeItemBeanList?.get(position)
             val itemView = holder.itemView as ITEMVIEW
             refreshView(itemView, get)
+            itemView.setOnClickListener {
+                listener?.invoke(get)
+            }
         }
+    }
+
+    var listener: ((itemBean: ITEMBEAN) -> Unit)? = null
+
+    fun setItemOnClickListener(listener: ((itemBean: ITEMBEAN) -> Unit)) {
+        this.listener = listener
     }
 
     override fun getItemCount(): Int {

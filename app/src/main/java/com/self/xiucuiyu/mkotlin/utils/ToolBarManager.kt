@@ -31,4 +31,7 @@ interface ToolBarManager {
     fun initAboutToolBar() {
         toolbar.title = "关于我"
     }
+    fun initVideoInfoToolBar() {
+        toolbar.title = "详情"
+    }
 }

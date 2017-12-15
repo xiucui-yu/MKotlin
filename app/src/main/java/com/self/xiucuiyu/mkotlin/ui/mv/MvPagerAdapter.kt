@@ -1,7 +1,6 @@
 package com.self.xiucuiyu.mkotlin.ui.mv
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.itheima.player.model.bean.MvAreaBean
@@ -21,11 +20,12 @@ class MvPagerAdapter(fm: FragmentManager, val tabData: List<MvAreaBean>?) : Frag
         val bundle = Bundle()
         bundle.putString("title", tabData!!.get(position).name)
         mvChildFragment.arguments = bundle
+        MvChildPresenter(mvChildFragment,tabData!!.get(position).code);
         return mvChildFragment
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
 
-        return  tabData!!.get(position).name
+        return tabData!!.get(position).name
     }
 }

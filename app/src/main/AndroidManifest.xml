@@ -21,6 +21,8 @@
         <activity android:name=".ui.homepage.HomeActivity" />
         <activity android:name=".ui.setting.SettingActivity" />
         <activity android:name=".ui.setting.AboutActivity" />
+        <activity android:name=".ui.mv.VideoPlayerActivity" />
+        <activity android:name=".ui.mv.TextureVideoPlayerActivity"/>
     </application>
 
 </manifest>
