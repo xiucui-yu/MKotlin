@@ -14,7 +14,7 @@ object CursorUtil {
             while (it.moveToNext()) {
                 for (index in 0 until it.columnCount) {
 
-                   Log.e("xiaoxiao",it.getColumnName(index)+"--value"+it.getString(index));
+                  System.out.print(it.getColumnName(index)+"--value"+it.getString(index));
                 }
             }
         }
