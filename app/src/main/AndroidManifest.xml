@@ -26,6 +26,7 @@
         <activity android:name=".ui.mv.VideoPlayerActivity" />
         <activity android:name=".ui.mv.TextureVideoPlayerActivity" />
         <activity android:name=".ui.vbang.AudioPlayerActivity" />
+        <service android:name=".ui.vbang.VbangService"/>
     </application>
 
 </manifest>
